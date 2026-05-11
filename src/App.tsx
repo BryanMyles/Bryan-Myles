@@ -10,7 +10,7 @@ const PROJECTS = [
     title: 'E-COMMERCE PLATFORMS',
     description: 'Developed fully functional online stores with product pages, cart systems, and user-friendly navigation.',
     tags: ['REACT', 'JAVASCRIPT', 'WEBFLOW'],
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=2000&h=1200',
+    image: '/E-COMMERCE WEBSITE.jpg',
     category: 'E-COMMERCE'
   },
   {
@@ -18,7 +18,7 @@ const PROJECTS = [
     title: 'CONVERSION LANDING PAGES',
     description: 'Designed conversion-focused pages for marketing campaigns and product promotions.',
     tags: ['FIGMA', 'TAILWIND CSS', 'SEO'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2000&h=1200',
+    image: '/Food website.jpg',
     category: 'MARKETING'
   },
   {
@@ -26,7 +26,7 @@ const PROJECTS = [
     title: 'BUSINESS & NGO WEBSITES',
     description: 'Created professional websites to enhance brand identity and online visibility.',
     tags: ['WORDPRESS', 'WIX', 'HTML/CSS'],
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000&h=1200',
+    image: '/NGO website.jpg',
     category: 'CORPORATE'
   },
   {
@@ -34,33 +34,13 @@ const PROJECTS = [
     title: 'BLOGS & CONTENT PLATFORMS',
     description: 'Built structured and SEO-friendly blog websites with easy content management.',
     tags: ['NEXT.JS', 'CMS', 'RESPONSIVE'],
-    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=2000&h=1200',
+    image: '/Blog website.jpg',
     category: 'CONTENT'
   }
 ];
 
-const TERMINAL_LINES = [
-  { text: 'bryan-myles git:(main) echo "Hello World"', type: 'command' },
-  { text: 'Hello World', type: 'output' },
-  { text: 'bryan-myles git:(main) npm run build', type: 'command' },
-  { text: '> bryan-myles-portfolio@1.0.0 build', type: 'system' },
-  { text: '> tailwindcss -i ./input.css -o ./output.css', type: 'system' },
-  { text: 'Rebuilding...', type: 'system' },
-  { text: 'Done in 420ms.', type: 'system' },
-];
-
 export default function App() {
   const [activeNav, setActiveNav] = useState('Home');
-  const [terminalLine, setTerminalLine] = useState(0);
-
-  useEffect(() => {
-    if (terminalLine < TERMINAL_LINES.length) {
-      const timer = setTimeout(() => {
-        setTerminalLine(prev => prev + 1);
-      }, 800);
-      return () => clearTimeout(timer);
-    }
-  }, [terminalLine]);
 
   return (
     <div className="min-h-screen bg-bg selection:bg-primary-light selection:text-primary overflow-x-hidden font-sans text-ink">
@@ -121,7 +101,7 @@ export default function App() {
               transition={{ delay: 0.1 }}
               className="text-6xl md:text-7xl font-black text-ink leading-[0.9] uppercase"
             >
-              Building digital experiences with <br/> <span className="text-primary">precision.</span>
+              Hi, I'm <br/> <span className="text-primary">Bryan Myles</span>
             </motion.h1>
             
             <motion.p 
@@ -148,54 +128,31 @@ export default function App() {
             </motion.div>
           </div>
 
-          {/* Terminal Window */}
+          {/* Profile Image Placeholder */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
-            className="lg:col-span-5 bg-white border border-secondary relative overflow-hidden h-[360px]"
+            className="lg:col-span-5 relative h-[400px] w-full mt-10 lg:mt-0"
           >
-            <div className="absolute inset-0 geometric-pattern"></div>
-            <div className="relative z-10 w-full h-full flex flex-col pt-6">
-              <div className="px-6 mb-4 flex gap-2">
-                <div className="w-2.5 h-2.5 bg-red-400 rounded-none"></div>
-                <div className="w-2.5 h-2.5 bg-amber-400 rounded-none"></div>
-                <div className="w-2.5 h-2.5 bg-emerald-400 rounded-none"></div>
-              </div>
-              <div className="flex-1 p-6 font-mono text-sm leading-relaxed bg-white border-t border-secondary overflow-hidden">
-                <AnimatePresence>
-                  {TERMINAL_LINES.slice(0, terminalLine).map((line, i) => (
-                    <motion.div 
-                      key={i}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      className="mb-2 flex whitespace-pre-wrap"
-                    >
-                      {line.type === 'command' && (
-                        <>
-                          <span className="text-primary mr-2">➜</span>
-                          <span className="text-ink">{line.text}</span>
-                        </>
-                      )}
-                      {line.type === 'output' && <span className="text-ink-muted">{line.text}</span>}
-                      {line.type === 'system' && <span className="text-ink-muted/60">{line.text}</span>}
-                    </motion.div>
-                  ))}
-                  {terminalLine >= TERMINAL_LINES.length && (
-                    <motion.div 
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="mt-4 flex items-center gap-2"
-                    >
-                      <span className="text-primary">➜</span>
-                      <motion.div 
-                        animate={{ opacity: [1, 0] }}
-                        transition={{ repeat: Infinity, duration: 0.8 }}
-                        className="w-2.5 h-5 bg-primary"
-                      />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+            {/* Geometric architectural accent behind the image */}
+            <div className="absolute inset-0 bg-primary/5 border border-primary/20 transform translate-x-4 translate-y-4"></div>
+            <div className="absolute inset-0 bg-white border border-secondary overflow-hidden shadow-xl">
+              <div className="absolute inset-0 geometric-pattern pointer-events-none"></div>
+              
+              <img 
+                src="/Bryan4wordpress.png" 
+                alt="Bryan Myles" 
+                className="w-full h-full object-cover object-top hover:scale-105 transition-all duration-700 relative z-10"
+              />
+              
+              {/* Technical label overlay */}
+              <div className="absolute bottom-6 left-6 z-30 bg-white/95 backdrop-blur-md border border-primary/20 px-4 py-3 flex items-center gap-3 font-mono shadow-sm">
+                <div className="w-2 h-2 bg-primary animate-pulse"></div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold text-ink-muted uppercase tracking-widest leading-none mb-1">Developer Profile</span>
+                  <span className="text-xs font-bold text-ink uppercase tracking-widest leading-none">BRYAN_MYLES.IMG</span>
+                </div>
               </div>
             </div>
           </motion.div>
